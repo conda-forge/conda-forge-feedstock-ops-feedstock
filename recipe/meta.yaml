@@ -12,7 +12,9 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
+  entry_points:
+    - conda-forge-feedstock-ops-container = conda_forge_feedstock_ops.__main__:main_container
 
 requirements:
   host:
@@ -47,6 +49,7 @@ test:
   commands:
     - pip check
     - python -c "import conda_forge_feedstock_ops; assert conda_forge_feedstock_ops.__version__ == '{{ version }}'"
+    - conda-forge-feedstock-ops-container --help
 
 about:
   home: https://github.com/regro/conda-forge-feedstock-ops
