@@ -7,12 +7,14 @@ package:
 
 source:
   url: https://github.com/regro/conda-forge-feedstock-ops/archive/refs/tags/{{ version }}.tar.gz
-  sha256: c5a2ef4d28a01dda2387c990863f94b8e321e254e33923716a626871be26985f
+  sha256: 4d137d159800db5ddec5b780e968fb2bf90c841c67ff1a3f4856c42322ba7422
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
+  entry_points:
+    - conda-forge-feedstock-ops-container = conda_forge_feedstock_ops.__main__:main_container
 
 requirements:
   host:
@@ -47,6 +49,7 @@ test:
   commands:
     - pip check
     - python -c "import conda_forge_feedstock_ops; assert conda_forge_feedstock_ops.__version__ == '{{ version }}'"
+    - conda-forge-feedstock-ops-container --help
 
 about:
   home: https://github.com/regro/conda-forge-feedstock-ops
