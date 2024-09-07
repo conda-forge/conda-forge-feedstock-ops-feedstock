@@ -1,5 +1,5 @@
 {% set name = "conda-forge-feedstock-ops" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/regro/conda-forge-feedstock-ops/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 4d137d159800db5ddec5b780e968fb2bf90c841c67ff1a3f4856c42322ba7422
+  sha256: 9e4563f211d0acb416ca8cbd0268f7816650850f4d44cc4c19176ceb2d005756
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   entry_points:
     - conda-forge-feedstock-ops-container = conda_forge_feedstock_ops.__main__:main_container
 
@@ -24,22 +24,13 @@ requirements:
     - setuptools_scm
   run:
     - python >=3.11
-    - python-rapidjson
-    - requests
-    - ruamel.yaml
     - click
-    - conda
-    - conda-package-handling
+    - conda-build >=3.27
     - conda-smithy
-    - conda-build
-    - libmambapy >=1.5.1,<2.0a0
-    - ruamel.yaml.jinja2
-    - conda-forge-metadata >=0.2.0
-    - wurlitzer
-    - requests
-    - zstandard
-    - boltons >=23.0.0
-    - py-rattler >=0.6.2,<0.7a0
+    - python-rapidjson
+    - pyyaml
+    - rattler-build-conda-compat >=0.0.2,<2.0.0a0
+    - python-rapidjson
 
 test:
   imports:
