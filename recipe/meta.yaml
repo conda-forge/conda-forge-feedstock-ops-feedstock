@@ -1,5 +1,6 @@
 {% set name = "conda-forge-feedstock-ops" %}
-{% set version = "0.10.1" %}
+{% set version = "0.10.2" %}
+{% set python_min = "3.11" %} 
 
 package:
   name: {{ name|lower }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://github.com/regro/conda-forge-feedstock-ops/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 67f3e4990827ed9770d70f6f19c77441bcfd41185c596315b4c7ebc35d2d5e0d
+  sha256: 9f4714bf133d8c7f1a69f55019fa0703951241839a8283da5dfbb12764e6a99c
 
 build:
   noarch: python
@@ -18,12 +19,12 @@ build:
 
 requirements:
   host:
-    - python >=3.11
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools_scm
   run:
-    - python >=3.11
+    - python >={{ python_min }}
     - click
     - conda-build >=3.27
     - conda-smithy >=3.40.1
@@ -37,6 +38,7 @@ test:
     - conda_forge_feedstock_ops
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - python -c "import conda_forge_feedstock_ops; assert conda_forge_feedstock_ops.__version__ == '{{ version }}'"
