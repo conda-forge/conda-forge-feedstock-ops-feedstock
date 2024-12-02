@@ -1,5 +1,6 @@
 {% set name = "conda-forge-feedstock-ops" %}
 {% set version = "0.10.2" %}
+{% set python_min = "3.11" %} 
 
 package:
   name: {{ name|lower }}
@@ -18,12 +19,12 @@ build:
 
 requirements:
   host:
-    - python >=3.11
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools_scm
   run:
-    - python >=3.11
+    - python >={{ python_min }}
     - click
     - conda-build >=3.27
     - conda-smithy >=3.40.1
@@ -37,6 +38,7 @@ test:
     - conda_forge_feedstock_ops
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - python -c "import conda_forge_feedstock_ops; assert conda_forge_feedstock_ops.__version__ == '{{ version }}'"
