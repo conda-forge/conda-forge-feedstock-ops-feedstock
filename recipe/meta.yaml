@@ -31,7 +31,6 @@ requirements:
     - python-rapidjson
     - pyyaml
     - rattler-build-conda-compat >=0.0.2,<2.0.0a0
-    - python-rapidjson
 
 test:
   imports:
