@@ -1,5 +1,5 @@
 {% set name = "conda-forge-feedstock-ops" %}
-{% set version = "0.12.0" %}
+{% set version = "0.13.0" %}
 {% set python_min = "3.11" %} 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/regro/conda-forge-feedstock-ops/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 50f2938e637c35383c1633987520383edb78578c629801ff4ffef9ae7b13ca68
+  sha256: 84758a28b5853e344d7b1eb49d1bb21a1df01a0dcb319715761bf80e0a0e8a06
 
 build:
   noarch: python
@@ -32,6 +32,7 @@ requirements:
     - python-rapidjson
     - pyyaml
     - rattler-build-conda-compat >=0.0.2,<2.0.0a0
+    - conda-forge-tick >=2025.3.22
 
 test:
   imports:
