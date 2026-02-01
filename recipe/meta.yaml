@@ -25,14 +25,24 @@ requirements:
     - setuptools_scm
   run:
     - python >={{ python_min }}
+    - boltons >=23.0.0
     - click
+    - conda
     - conda-build >=3.27
+    - conda-forge-metadata >=0.11.0
+    - conda-package-handling
     - conda-smithy >=3.40.1
-    - pydantic-settings
-    - python-rapidjson
-    - pyyaml
+    - orjson
+    - pixi
+    - py-rattler >=0.21.0,<0.22a0
+    - pydantic-settings >=2.8.1,<3.0.0
+    - python >={{ python_min }}
     - rattler-build-conda-compat >=0.0.2,<2.0.0a0
-    - conda-forge-tick >=2025.3.22
+    - requests
+    - ruamel.yaml
+    - ruamel.yaml.jinja2
+    - wurlitzer
+    - zstandard
 
 test:
   imports:
