@@ -1,5 +1,5 @@
 {% set name = "conda-forge-feedstock-ops" %}
-{% set version = "0.15.2" %}
+{% set version = "0.16.0" %}
 {% set python_min = "3.11" %} 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/regro/conda-forge-feedstock-ops/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 8583cf543e6a71fdf2f2ce981439198394a0d6ef6f4ef5738602d0c32c59db37
+  sha256: 5a1d46be511411a1fb8873ba9d320886ae38b1796780460da95fd40fead1b939
 
 build:
   noarch: python
