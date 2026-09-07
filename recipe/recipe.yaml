@@ -1,0 +1,75 @@
+schema_version: 1
+
+context:
+  name: conda-forge-feedstock-ops
+  version: "0.19.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/regro/conda-forge-feedstock-ops/archive/refs/tags/${{ version }}.tar.gz
+  sha256: 225e0516134de391b82db63e4e2c629949869ff243f77bda3b6ea24442f87730
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+  python:
+    entry_points:
+      - conda-forge-feedstock-ops-container = conda_forge_feedstock_ops.__main__:main_container
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+    - setuptools_scm
+  run:
+    - python >=${{ python_min }}
+    - boltons >=23.0.0
+    - click
+    - conda
+    - conda-build >=3.27
+    - conda-forge-metadata >=2026.9.5
+    - conda-package-handling
+    - conda-recipe-manager
+    - conda-smithy >=2026
+    - orjson
+    - pixi
+    - py-rattler >=0.22.0,<0.26a0
+    - pydantic >=2.13
+    - pydantic-settings >=2.15.0,<3.0.0
+    - rattler-build-conda-compat >=1.4.15,<2.0.0a0
+    - requests
+    - ruamel.yaml
+    - ruamel.yaml.jinja2
+    - wurlitzer
+    - zstandard
+
+tests:
+  - python:
+      imports:
+        - conda_forge_feedstock_ops
+        - conda_forge_feedstock_ops.check_solvable
+      pip_check: false
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+    script:
+      - python -c "import conda_forge_feedstock_ops; assert conda_forge_feedstock_ops.__version__ == '${{ version }}'"
+      - conda-forge-feedstock-ops-container --help
+
+about:
+  summary: A package of containerized feedstock maintenance operations
+  license: BSD-3-Clause
+  license_file: LICENSE
+  homepage: https://github.com/regro/conda-forge-feedstock-ops
+
+extra:
+  recipe-maintainers:
+    - beckermr
