@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/regro/conda-forge-feedstock-ops/archive/refs/tags/${{ version }}.tar.gz
-  sha256: bf69ba6ff242dc12a1838b8ab5beedc8f35ff057f7e4d23e9ccbacac4509473b
+  sha256: e388715bf68dc2d7f2b5b352e31f0617aafe2ca0d4ccb384a858d56b62278451
 
 build:
   number: 0
