@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: conda-forge-feedstock-ops
-  version: "0.19.1"
+  version: "0.20.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://github.com/regro/conda-forge-feedstock-ops/archive/refs/tags/${{ version }}.tar.gz
-  sha256: 225e0516134de391b82db63e4e2c629949869ff243f77bda3b6ea24442f87730
+  sha256: bf69ba6ff242dc12a1838b8ab5beedc8f35ff057f7e4d23e9ccbacac4509473b
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
   python:
