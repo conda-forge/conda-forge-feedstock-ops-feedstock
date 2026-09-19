@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: conda-forge-feedstock-ops
-  version: "0.20.2"
+  version: "0.20.3"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/regro/conda-forge-feedstock-ops/archive/refs/tags/${{ version }}.tar.gz
-  sha256: 6623bed2fd6338c7ce03710223a96483d7d0a8b3401959eb36697d87226c3f55
+  sha256: cf63e3aa002611b0dff84b71ed50abf13336eeabadba6e0bbdf2f8b260683772
 
 build:
   number: 0
