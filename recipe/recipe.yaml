@@ -13,7 +13,7 @@ source:
   sha256: cf63e3aa002611b0dff84b71ed50abf13336eeabadba6e0bbdf2f8b260683772
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
   python:
@@ -39,7 +39,7 @@ requirements:
     - jinja2
     - orjson
     - pixi
-    - py-rattler >=0.22.0,<0.26a0
+    - py-rattler >=0.22.0,<0.29a0
     - pydantic >=2.13
     - pydantic-settings >=2.15.0,<3.0.0
     - rattler-build-conda-compat >=1.4.15,<2.0.0a0
